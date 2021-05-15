@@ -1,3 +1,2 @@
-# Strapi application
+# Eden-smart-homes-ev-backend
 
-A quick description of your strapi application
