@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_connectors_connectors",
+  "info": {
+    "name": "connectors",
+    "icon": "anchor"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

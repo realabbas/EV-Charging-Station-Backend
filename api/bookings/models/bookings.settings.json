@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bookings",
+  "info": {
+    "name": "Bookings",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "booked_from": {
+      "type": "datetime"
+    },
+    "booked_to": {
+      "type": "datetime"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "amount": {
+      "type": "float"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "PROGRESS",
+        "COMPLETED",
+        "SCHEDULED",
+        "FAILED",
+        "CANCELLED"
+      ]
+    },
+    "booked_at": {
+      "type": "datetime"
+    },
+    "user_id": {
+      "type": "biginteger"
+    },
+    "station_id": {
+      "type": "biginteger"
+    }
+  }
+}

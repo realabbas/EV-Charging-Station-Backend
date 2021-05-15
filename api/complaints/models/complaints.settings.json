@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "complaints",
+  "info": {
+    "name": "Complaints",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user_id": {
+      "type": "biginteger"
+    },
+    "complaint": {
+      "type": "richtext"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "RESOLVED",
+        "UNRESOLVED",
+        "DISPUTED"
+      ]
+    },
+    "device_id": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "relevant_data": {
+      "type": "richtext"
+    },
+    "platform": {
+      "type": "enumeration",
+      "enum": [
+        "Android",
+        "iOS",
+        "Windows",
+        "Web"
+      ]
+    },
+    "subject": {
+      "type": "richtext"
+    }
+  }
+}

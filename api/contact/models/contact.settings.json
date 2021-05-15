@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contacts",
+  "info": {
+    "name": "Contact"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "phone": {
+      "type": "biginteger"
+    },
+    "mobile": {
+      "type": "biginteger"
+    },
+    "office_address": {
+      "type": "richtext"
+    },
+    "email": {
+      "type": "email"
+    },
+    "office_image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "pincode": {
+      "type": "integer"
+    },
+    "company_description": {
+      "type": "richtext"
+    }
+  }
+}

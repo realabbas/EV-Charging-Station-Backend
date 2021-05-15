@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stations",
+  "info": {
+    "name": "Stations",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "richtext"
+    },
+    "latitude": {
+      "type": "float"
+    },
+    "longitude": {
+      "type": "float"
+    },
+    "blocked": {
+      "type": "boolean",
+      "default": false
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "AVAILABLE",
+        "UNAVAILABLE",
+        "LOCKED"
+      ]
+    },
+    "user_id": {
+      "type": "biginteger"
+    },
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "pincode": {
+      "type": "integer"
+    },
+    "power_rating": {
+      "type": "float"
+    },
+    "slots": {
+      "type": "integer"
+    },
+    "area": {
+      "type": "string"
+    },
+    "opening_time": {
+      "type": "time"
+    },
+    "closing_time": {
+      "type": "time"
+    },
+    "last_booking_id": {
+      "type": "biginteger"
+    },
+    "connectors": {
+      "type": "component",
+      "repeatable": true,
+      "component": "connectors.connectors"
+    }
+  }
+}
