@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/vehicles",
+      "handler": "vehicles.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/vehicles/count",
+      "handler": "vehicles.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/vehicles/:id",
+      "handler": "vehicles.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/vehicles",
+      "handler": "vehicles.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/vehicles/:id",
+      "handler": "vehicles.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/vehicles/:id",
+      "handler": "vehicles.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

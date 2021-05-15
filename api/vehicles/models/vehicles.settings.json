@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vehicles",
+  "info": {
+    "name": "Vehicles"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "brand": {
+      "type": "enumeration",
+      "enum": [
+        "TATA",
+        "RENAULT",
+        "TESLA"
+      ]
+    }
+  }
+}
