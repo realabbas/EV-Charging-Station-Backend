@@ -925,7 +925,7 @@
         ]
       }
     },
-    "/users/me": {
+    "/users/profile": {
       "get": {
         "deprecated": false,
         "description": "Retrieve the logged in user information",
