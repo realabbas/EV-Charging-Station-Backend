@@ -527,8 +527,7 @@
             "items": {
               "required": [
                 "id",
-                "username",
-                "email"
+                "username"
               ],
               "properties": {
                 "id": {
@@ -576,13 +575,16 @@
                 "profile_picture": {
                   "type": "string"
                 },
-                "number": {
-                  "type": "integer"
-                },
                 "country": {
                   "type": "string"
                 },
                 "country_code": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                },
+                "token": {
                   "type": "string"
                 },
                 "created_by": {

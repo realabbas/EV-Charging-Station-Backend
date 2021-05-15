@@ -1187,8 +1187,7 @@
       "UsersPermissionsUser": {
         "required": [
           "id",
-          "username",
-          "email"
+          "username"
         ],
         "properties": {
           "id": {
@@ -1365,21 +1364,23 @@
               }
             }
           },
-          "number": {
-            "type": "integer"
-          },
           "country": {
             "type": "string"
           },
           "country_code": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "token": {
             "type": "string"
           }
         }
       },
       "NewUsersPermissionsUser": {
         "required": [
-          "username",
-          "email"
+          "username"
         ],
         "properties": {
           "username": {
@@ -1462,13 +1463,16 @@
           "address": {
             "type": "string"
           },
-          "number": {
-            "type": "integer"
-          },
           "country": {
             "type": "string"
           },
           "country_code": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "token": {
             "type": "string"
           },
           "created_by": {

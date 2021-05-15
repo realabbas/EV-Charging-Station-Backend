@@ -1,0 +1,12 @@
+{
+    "routes": [
+      {
+        "method": "POST",
+        "path": "/verify",
+        "handler": "User.verifyAccount",
+        "config": {
+          "policies": []
+        }
+      }
+    ]
+  }

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "05/15/2021 2:12:47 PM"
+    "x-generation-date": "05/15/2021 2:33:17 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5522,8 +5522,7 @@
             "items": {
               "required": [
                 "id",
-                "username",
-                "email"
+                "username"
               ],
               "properties": {
                 "id": {
@@ -5571,13 +5570,16 @@
                 "profile_picture": {
                   "type": "string"
                 },
-                "number": {
-                  "type": "integer"
-                },
                 "country": {
                   "type": "string"
                 },
                 "country_code": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                },
+                "token": {
                   "type": "string"
                 },
                 "created_by": {
@@ -5629,8 +5631,7 @@
       "UsersPermissionsUser": {
         "required": [
           "id",
-          "username",
-          "email"
+          "username"
         ],
         "properties": {
           "id": {
@@ -5807,21 +5808,23 @@
               }
             }
           },
-          "number": {
-            "type": "integer"
-          },
           "country": {
             "type": "string"
           },
           "country_code": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "token": {
             "type": "string"
           }
         }
       },
       "NewUsersPermissionsUser": {
         "required": [
-          "username",
-          "email"
+          "username"
         ],
         "properties": {
           "username": {
@@ -5904,13 +5907,16 @@
           "address": {
             "type": "string"
           },
-          "number": {
-            "type": "integer"
-          },
           "country": {
             "type": "string"
           },
           "country_code": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "token": {
             "type": "string"
           },
           "created_by": {
