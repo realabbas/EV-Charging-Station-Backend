@@ -7,6 +7,37 @@
         "config": {
           "policies": []
         }
+      },
+      {
+        "method": "GET",
+        "path": "/checks",
+        "handler": "User.checks",
+        "config": {
+          "policies": []
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/login",
+        "handler": "User.login",
+        "config": {
+          "policies": []
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/profile",
+        "handler": "User.profile",
+        "config": {
+          "policies": [],
+          "prefix": "",
+          "description": "Retrieve the logged in user information",
+          "tag": {
+            "plugin": "users-permissions",
+            "name": "User",
+            "actionType": "findOne"
+          }
+        }
       }
     ]
   }
