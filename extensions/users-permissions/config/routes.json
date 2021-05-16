@@ -10,8 +10,8 @@
       },
       {
         "method": "GET",
-        "path": "/checks",
-        "handler": "User.checks",
+        "path": "/status",
+        "handler": "User.status",
         "config": {
           "policies": []
         }
