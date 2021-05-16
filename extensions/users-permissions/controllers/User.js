@@ -214,4 +214,15 @@ module.exports = {
   async status(ctx) {
     ctx.send({ status: 200 });
   },
+  async sendEmail(ctx) {
+    const { to, subject, text } = ctx.request.body;
+
+    await strapi.plugins["email"].services.email.send({
+      to,
+      from: "bot@devlab.works",
+      subject,
+      text,
+    });
+    ctx.send({ message: "Email Sent from SendGrid", status: 200 });
+  },
 };

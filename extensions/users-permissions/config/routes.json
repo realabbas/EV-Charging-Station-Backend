@@ -38,6 +38,16 @@
             "actionType": "findOne"
           }
         }
+      },
+      {
+        "method": "POST",
+        "path": "/send/email",
+        "handler": "User.sendEmail",
+        "config": {
+          "policies": [],
+          "prefix": "",
+          "description": "Send an email"
+        }
       }
     ]
   }
