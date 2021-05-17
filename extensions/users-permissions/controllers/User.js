@@ -13,7 +13,7 @@ const sanitizeUser = (user) =>
   });
 
 module.exports = {
-  async create(ctx) {
+  async signup(ctx) {
     const { phone, username } = ctx.request.body;
 
     if (!phone) return ctx.badRequest("missing.phone");
@@ -63,9 +63,11 @@ module.exports = {
     user.role = defaultRole.id;
 
     try {
+      
       const data = await strapi.plugins["users-permissions"].services.user.add(
         user
       );
+      console.log("entered here")
       await smsClient.messages.create({
         to: phone,
         from: twilio.phone,

@@ -2,10 +2,11 @@
     "routes": [
       {
         "method": "POST",
-        "path": "/verify",
+        "path": "/verify/otp",
         "handler": "User.verifyAccount",
         "config": {
-          "policies": []
+          "policies": [],
+          "prefix": ""
         }
       },
       {
@@ -21,7 +22,17 @@
         "path": "/login",
         "handler": "User.login",
         "config": {
-          "policies": []
+          "policies": [],
+          "prefix": ""
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/signup",
+        "handler": "User.signup",
+        "config": {
+          "policies": [],
+          "prefix": ""
         }
       },
       {
@@ -47,6 +58,16 @@
           "policies": [],
           "prefix": "",
           "description": "Send an email"
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/resend/otp",
+        "handler": "User.login",
+        "config": {
+          "policies": [],
+          "prefix": "",
+          "description": "Resend OTP"
         }
       }
     ]
