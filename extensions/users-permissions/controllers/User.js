@@ -63,11 +63,10 @@ module.exports = {
     user.role = defaultRole.id;
 
     try {
-      
       const data = await strapi.plugins["users-permissions"].services.user.add(
         user
       );
-      console.log("entered here")
+      console.log("entered here");
       await smsClient.messages.create({
         to: phone,
         from: twilio.phone,
@@ -226,5 +225,15 @@ module.exports = {
       text,
     });
     ctx.send({ message: "Email Sent from SendGrid", status: 200 });
+  },
+  async profileUpdate(ctx) {
+    const user = ctx.state.user;
+    const {data} = ctx.request.body;
+
+    await strapi
+      .query("user", "users-permissions")
+      .update({ id: user.id }, data);
+    ctx.send({ message: "Updated", status: 200 });
+
   },
 };

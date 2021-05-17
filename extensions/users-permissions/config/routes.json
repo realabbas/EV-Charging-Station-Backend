@@ -52,6 +52,21 @@
       },
       {
         "method": "POST",
+        "path": "/profile/update",
+        "handler": "User.profileUpdate",
+        "config": {
+          "policies": [],
+          "prefix": "",
+          "description": "Update user information",
+          "tag": {
+            "plugin": "users-permissions",
+            "name": "User",
+            "actionType": "findOne"
+          }
+        }
+      },
+      {
+        "method": "POST",
         "path": "/send/email",
         "handler": "User.sendEmail",
         "config": {
