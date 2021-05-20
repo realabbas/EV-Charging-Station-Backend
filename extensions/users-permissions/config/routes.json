@@ -20,7 +20,7 @@
       {
         "method": "POST",
         "path": "/login",
-        "handler": "User.login",
+        "handler": "User.passwordless",
         "config": {
           "policies": [],
           "prefix": ""
@@ -83,6 +83,15 @@
           "policies": [],
           "prefix": "",
           "description": "Resend OTP"
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/test",
+        "handler": "User.passwordless",
+        "config": {
+          "policies": [],
+          "prefix": ""
         }
       }
     ]

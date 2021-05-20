@@ -526,8 +526,7 @@
             "type": "array",
             "items": {
               "required": [
-                "id",
-                "username"
+                "id"
               ],
               "properties": {
                 "id": {

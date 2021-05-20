@@ -14,10 +14,10 @@ const sanitizeUser = (user) =>
 
 module.exports = {
   async signup(ctx) {
-    const { phone, username } = ctx.request.body;
+    const { phone } = ctx.request.body;
 
     if (!phone) return ctx.badRequest("missing.phone");
-    if (!username) return ctx.badRequest("missing.username");
+    // if (!username) return ctx.badRequest("missing.username");
 
     const userWithThisNumber = await strapi
       .query("user", "users-permissions")
@@ -41,7 +41,6 @@ module.exports = {
     const token = Math.floor(Math.random() * 90000) + 10000;
 
     const user = {
-      username,
       phone,
       provider: "local",
       token,
@@ -78,7 +77,7 @@ module.exports = {
     }
   },
   async login(ctx) {
-    const { phone, username } = ctx.request.body;
+    const { phone } = ctx.request.body;
 
     if (!phone) return ctx.badRequest("missing.phone");
     // if (!username) return ctx.badRequest("missing.username");
@@ -105,7 +104,6 @@ module.exports = {
     const token = Math.floor(Math.random() * 90000) + 10000;
 
     const user = {
-      username,
       phone,
       provider: "local",
       token,
@@ -228,12 +226,118 @@ module.exports = {
   },
   async profileUpdate(ctx) {
     const user = ctx.state.user;
-    const {data} = ctx.request.body;
+    const { data } = ctx.request.body;
 
     await strapi
       .query("user", "users-permissions")
       .update({ id: user.id }, data);
     ctx.send({ message: "Updated", status: 200 });
+  },
+  async passwordless(ctx) {
+    const { phone } = ctx.request.body;
 
+    if (!phone) return ctx.badRequest("missing.phone");
+    // if (!username) return ctx.badRequest("missing.username");
+
+    const userWithThisNumber = await strapi
+      .query("user", "users-permissions")
+      .findOne({ phone });
+
+    if (userWithThisNumber) {
+      console.log("USER_ALREADY_REGISTERED");
+      // return ctx.badRequest(null, [
+      //   {
+      //     message: [
+      //       {
+      //         id: "Auth.form.error.phone.taken",
+      //         message: "Phone already taken.",
+      //         field: ["phone"],
+      //       },
+      //     ],
+      //   },
+      // ]);
+      const token = Math.floor(Math.random() * 90000) + 10000;
+
+      const user = {
+        phone,
+        provider: "local",
+        token,
+      };
+
+      const advanced = await strapi
+        .store({
+          environment: "",
+          type: "plugin",
+          name: "users-permissions",
+          key: "advanced",
+        })
+        .get();
+
+      const defaultRole = await strapi
+        .query("role", "users-permissions")
+        .findOne({ type: advanced.default_role }, []);
+
+      user.role = defaultRole.id;
+
+      try {
+        // const data = await strapi.plugins["users-permissions"].services.user.add(
+        //   user
+        // );
+        await strapi
+          .query("user", "users-permissions")
+          .update({ phone }, { token });
+
+        await smsClient.messages.create({
+          to: phone,
+          from: twilio.phone,
+          body: `Your verification code is ${token}`,
+        });
+        // ctx.created(sanitizeUser(data));
+        ctx.send({ message: "OTP Sent from Twilio", status: 200 });
+      } catch (error) {
+        ctx.badRequest(null, [{ messages: [{ error }] }]);
+      }
+    } else {
+      // return ctx.badRequest(null, [{ messages: [{ id: 'No authorization header was found' }] }]);
+      console.log("USER_TO_BE_REGISTERED");
+
+      const token = Math.floor(Math.random() * 90000) + 10000;
+
+      const user = {
+        phone,
+        provider: "local",
+        token,
+      };
+
+      const advanced = await strapi
+        .store({
+          environment: "",
+          type: "plugin",
+          name: "users-permissions",
+          key: "advanced",
+        })
+        .get();
+
+      const defaultRole = await strapi
+        .query("role", "users-permissions")
+        .findOne({ type: advanced.default_role }, []);
+
+      user.role = defaultRole.id;
+
+      try {
+        const data = await strapi.plugins[
+          "users-permissions"
+        ].services.user.add(user);
+        console.log("entered here");
+        await smsClient.messages.create({
+          to: phone,
+          from: twilio.phone,
+          body: `Your verification code is ${token}`,
+        });
+        ctx.created(sanitizeUser(data));
+      } catch (error) {
+        ctx.badRequest(null, [{ messages: [{ error }] }]);
+      }
+    }
   },
 };
