@@ -47,6 +47,15 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "POST",
+      "path": "/stations/nearby",
+      "handler": "stations.nearbyStation",
+      "config": {
+        "policies": [],
+        "prefix": ""
+      }
     }
   ]
 }
