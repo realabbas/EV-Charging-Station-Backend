@@ -93,6 +93,15 @@
           "policies": [],
           "prefix": ""
         }
+      },
+      {
+        "method": "GET",
+        "path": "/logout",
+        "handler": "User.logout",
+        "config": {
+          "policies": [],
+          "prefix": ""
+        }
       }
     ]
   }

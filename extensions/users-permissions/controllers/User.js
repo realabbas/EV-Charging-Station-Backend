@@ -232,7 +232,6 @@ module.exports = {
     const updatedData = await strapi
       .query("user", "users-permissions")
       .update({ id: user.id }, data);
-    
 
     ctx.send({ message: "Updated", status: 200, updatedData });
   },
@@ -342,5 +341,39 @@ module.exports = {
         ctx.badRequest(null, [{ messages: [{ error }] }]);
       }
     }
+  },
+  async logout(ctx) {
+    const user = ctx.state.user;
+
+    const params = _.assign({}, ctx.request.body, ctx.request.query);
+
+    let token = "";
+
+    if (ctx.request && ctx.request.header && ctx.request.header.authorization) {
+      const parts = ctx.request.header.authorization.split(" ");
+
+      if (parts.length === 2) {
+        const scheme = parts[0];
+        const credentials = parts[1];
+        if (/^Bearer$/i.test(scheme)) {
+          token = credentials;
+        }
+      } else {
+        throw new Error(
+          "Invalid authorization header format. Format is Authorization: Bearer [token]"
+        );
+      }
+    } else if (params.token) {
+      token = params.token;
+    } else {
+      throw new Error("No authorization header was found");
+    }
+
+    const data = await strapi.query("jwt-credentials").findOne({ jwt: token });
+    if (!data) {
+      await strapi.query("jwt-credentials").create({ jwt: token });
+    }
+
+    ctx.send({ message: "Logout Successfully", status: 200 });
   },
 };
