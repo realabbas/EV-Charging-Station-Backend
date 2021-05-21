@@ -36,9 +36,6 @@
         "LOCKED"
       ]
     },
-    "user_id": {
-      "type": "biginteger"
-    },
     "images": {
       "collection": "file",
       "via": "related",
@@ -69,13 +66,13 @@
     "closing_time": {
       "type": "time"
     },
-    "last_booking_id": {
-      "type": "biginteger"
-    },
     "connectors": {
       "type": "component",
       "repeatable": true,
       "component": "connectors.connectors"
+    },
+    "user_id": {
+      "type": "string"
     }
   }
 }

@@ -65,6 +65,15 @@
         "policies": [],
         "prefix": ""
       }
+    },
+    {
+      "method": "POST",
+      "path": "/stations/unlock",
+      "handler": "stations.unlockStation",
+      "config": {
+        "policies": [],
+        "prefix": ""
+      }
     }
   ]
 }

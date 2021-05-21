@@ -2,12 +2,13 @@
   "collectionName": "components_bookmarks_bookmarks",
   "info": {
     "name": "bookmarks",
-    "icon": "allergies"
+    "icon": "allergies",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "station_id": {
-      "type": "biginteger"
+      "type": "string"
     }
   }
 }

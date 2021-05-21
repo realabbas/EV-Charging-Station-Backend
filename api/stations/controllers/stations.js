@@ -85,4 +85,22 @@ module.exports = {
 
     ctx.send({ data: query });
   },
+  async unlockStation(ctx) {
+    const { station_id } = ctx.request.body;
+
+    // updateData
+
+    const updateData = {
+      status: "AVAILABLE",
+      user_id: "",
+    };
+
+    // query
+
+    const query = await strapi
+      .query("stations")
+      .update({ id: station_id }, updateData);
+
+    ctx.send({ data: query });
+  },
 };

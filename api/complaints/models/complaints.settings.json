@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "user_id": {
-      "type": "biginteger"
-    },
     "complaint": {
       "type": "richtext"
     },
@@ -46,6 +43,21 @@
     },
     "subject": {
       "type": "richtext"
+    },
+    "user_id": {
+      "type": "string"
+    },
+    "attachments": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

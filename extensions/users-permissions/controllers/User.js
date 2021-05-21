@@ -226,12 +226,15 @@ module.exports = {
   },
   async profileUpdate(ctx) {
     const user = ctx.state.user;
+
     const { data } = ctx.request.body;
 
-    await strapi
+    const updatedData = await strapi
       .query("user", "users-permissions")
       .update({ id: user.id }, data);
-    ctx.send({ message: "Updated", status: 200 });
+    
+
+    ctx.send({ message: "Updated", status: 200, updatedData });
   },
   async passwordless(ctx) {
     const { phone } = ctx.request.body;

@@ -1405,7 +1405,7 @@
                   "type": "string"
                 },
                 "station_id": {
-                  "type": "integer"
+                  "type": "string"
                 }
               }
             }
@@ -1568,7 +1568,7 @@
                   "type": "string"
                 },
                 "station_id": {
-                  "type": "integer"
+                  "type": "string"
                 }
               }
             }

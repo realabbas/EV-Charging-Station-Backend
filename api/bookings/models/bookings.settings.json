@@ -39,10 +39,10 @@
       "type": "datetime"
     },
     "user_id": {
-      "type": "biginteger"
+      "type": "string"
     },
     "station_id": {
-      "type": "biginteger"
+      "type": "string"
     }
   }
 }

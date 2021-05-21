@@ -15,6 +15,7 @@
     "strapi": "3.6.0",
     "strapi-admin": "3.6.0",
     "strapi-connector-bookshelf": "3.6.0",
+    "strapi-connector-mongoose": "^3.6.2",
     "strapi-plugin-content-manager": "3.6.0",
     "strapi-plugin-content-type-builder": "3.6.0",
     "strapi-plugin-documentation": "3.6.0",
