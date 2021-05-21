@@ -48,12 +48,12 @@ module.exports = {
   },
 
   async verify(token) {
-    const whitelisted = await strapi
+    const blacklisted = await strapi
       .query("jwt-credentials")
       .findOne({ jwt: token });
     return new Promise(function (resolve, reject) {
 
-      if (whitelisted) {
+      if (!blacklisted) {
         jwt.verify(
           token,
           _.get(strapi.plugins, ["users-permissions", "config", "jwtSecret"]),
