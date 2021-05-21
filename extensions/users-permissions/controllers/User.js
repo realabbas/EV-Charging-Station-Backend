@@ -239,7 +239,6 @@ module.exports = {
     const { phone } = ctx.request.body;
 
     if (!phone) return ctx.badRequest("missing.phone");
-    // if (!username) return ctx.badRequest("missing.username");
 
     const userWithThisNumber = await strapi
       .query("user", "users-permissions")
@@ -247,17 +246,6 @@ module.exports = {
 
     if (userWithThisNumber) {
       console.log("USER_ALREADY_REGISTERED");
-      // return ctx.badRequest(null, [
-      //   {
-      //     message: [
-      //       {
-      //         id: "Auth.form.error.phone.taken",
-      //         message: "Phone already taken.",
-      //         field: ["phone"],
-      //       },
-      //     ],
-      //   },
-      // ]);
       const token = Math.floor(Math.random() * 90000) + 10000;
 
       const user = {
@@ -282,25 +270,16 @@ module.exports = {
       user.role = defaultRole.id;
 
       try {
-        // const data = await strapi.plugins["users-permissions"].services.user.add(
-        //   user
-        // );
+
         await strapi
           .query("user", "users-permissions")
           .update({ phone }, { token });
-
-        await smsClient.messages.create({
-          to: phone,
-          from: twilio.phone,
-          body: `Your verification code is ${token}`,
-        });
-        // ctx.created(sanitizeUser(data));
+        strapi.services.sms.send(phone, `EDEN-EV: Your verification code is ${token}`);
         ctx.send({ message: "OTP Sent from Twilio", status: 200 });
       } catch (error) {
         ctx.badRequest(null, [{ messages: [{ error }] }]);
       }
     } else {
-      // return ctx.badRequest(null, [{ messages: [{ id: 'No authorization header was found' }] }]);
       console.log("USER_TO_BE_REGISTERED");
 
       const token = Math.floor(Math.random() * 90000) + 10000;
