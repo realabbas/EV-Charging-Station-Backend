@@ -67,4 +67,22 @@ module.exports = {
 
     ctx.send({ resultSize: data.length, data });
   },
+  async lockStation(ctx) {
+    const { station_id, user_id } = ctx.request.body;
+
+    // updateData
+
+    const updateData = {
+      status: "LOCKED",
+      user_id,
+    };
+
+    // query
+
+    const query = await strapi
+      .query("stations")
+      .update({ id: station_id }, updateData);
+
+    ctx.send({ data: query });
+  },
 };

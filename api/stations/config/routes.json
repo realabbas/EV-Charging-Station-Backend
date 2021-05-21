@@ -56,6 +56,15 @@
         "policies": [],
         "prefix": ""
       }
+    }, 
+    {
+      "method": "POST",
+      "path": "/stations/lock",
+      "handler": "stations.lockStation",
+      "config": {
+        "policies": [],
+        "prefix": ""
+      }
     }
   ]
 }
