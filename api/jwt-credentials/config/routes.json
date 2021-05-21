@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/jwt-credentials",
+      "handler": "jwt-credentials.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/jwt-credentials/count",
+      "handler": "jwt-credentials.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/jwt-credentials/:id",
+      "handler": "jwt-credentials.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/jwt-credentials",
+      "handler": "jwt-credentials.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/jwt-credentials/:id",
+      "handler": "jwt-credentials.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/jwt-credentials/:id",
+      "handler": "jwt-credentials.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
