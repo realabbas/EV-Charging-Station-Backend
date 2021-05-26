@@ -13,7 +13,8 @@
       "path": "/contacts/count",
       "handler": "contact.count",
       "config": {
-        "policies": []
+        "policies": [],
+        "prefix":""
       }
     },
     {
