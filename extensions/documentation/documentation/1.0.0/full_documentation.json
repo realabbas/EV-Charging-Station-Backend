@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "05/22/2021 5:14:45 AM"
+    "x-generation-date": "05/26/2021 12:04:32 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5930,6 +5930,24 @@
           "station_id": {
             "type": "string"
           },
+          "payment_id": {
+            "type": "string"
+          },
+          "payment_mode": {
+            "type": "string",
+            "enum": [
+              "ONLINE",
+              "OFFLINE"
+            ]
+          },
+          "payment_provider": {
+            "type": "string",
+            "enum": [
+              "RAZORPAY",
+              "PAYUMONEY",
+              "INSTAMOJO"
+            ]
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -5972,6 +5990,24 @@
           },
           "station_id": {
             "type": "string"
+          },
+          "payment_id": {
+            "type": "string"
+          },
+          "payment_mode": {
+            "type": "string",
+            "enum": [
+              "ONLINE",
+              "OFFLINE"
+            ]
+          },
+          "payment_provider": {
+            "type": "string",
+            "enum": [
+              "RAZORPAY",
+              "PAYUMONEY",
+              "INSTAMOJO"
+            ]
           },
           "published_at": {
             "type": "string",
