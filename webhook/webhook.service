@@ -1,0 +1,13 @@
+[Unit]
+Description=Github webhook
+After=network.target
+
+[Service]
+Environment=PATH=/home/ubuntu/.nvm/versions/node/v16.1.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+Type=simple
+User=ubuntu
+ExecStart=/home/ubuntu/.nvm/versions/node/v16.1.0/bin/node /home/ubuntu/NodeWebHooks/webhook.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
