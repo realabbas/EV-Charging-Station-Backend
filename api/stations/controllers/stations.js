@@ -42,11 +42,11 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 
 module.exports = {
   async nearbyStation(ctx) {
-    const { latitude, longitude, pincode, radius, unit } = ctx.request.body;
+    const { latitude, longitude, radius, unit } = ctx.request.body;
 
     // query by area first then add the calculate distance function
 
-    const station = await strapi.query("stations").find({ pincode });
+    const station = await strapi.query("stations").find({});
 
     // Empty array for result
 
