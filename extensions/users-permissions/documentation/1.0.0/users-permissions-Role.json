@@ -586,6 +586,9 @@
                 "token": {
                   "type": "string"
                 },
+                "fcm_token": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "05/26/2021 12:04:32 PM"
+    "x-generation-date": "05/26/2021 12:05:42 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6773,6 +6773,9 @@
                 "token": {
                   "type": "string"
                 },
+                "fcm_token": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -7009,6 +7012,9 @@
           },
           "token": {
             "type": "string"
+          },
+          "fcm_token": {
+            "type": "string"
           }
         }
       },
@@ -7104,6 +7110,9 @@
             "type": "string"
           },
           "token": {
+            "type": "string"
+          },
+          "fcm_token": {
             "type": "string"
           },
           "created_by": {

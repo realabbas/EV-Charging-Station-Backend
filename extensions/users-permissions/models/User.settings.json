@@ -96,6 +96,9 @@
     },
     "token": {
       "type": "string"
+    },
+    "fcm_token": {
+      "type": "richtext"
     }
   }
 }
