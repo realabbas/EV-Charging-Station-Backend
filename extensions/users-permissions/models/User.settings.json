@@ -13,7 +13,6 @@
     "username": {
       "type": "string",
       "minLength": 3,
-      "unique": true,
       "configurable": false
     },
     "email": {
@@ -92,7 +91,8 @@
       "type": "string"
     },
     "phone": {
-      "type": "string"
+      "type": "string",
+      "unique": true
     },
     "token": {
       "type": "string"
