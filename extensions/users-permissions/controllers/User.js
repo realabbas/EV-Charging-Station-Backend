@@ -274,8 +274,8 @@ module.exports = {
         await strapi
           .query("user", "users-permissions")
           .update({ phone }, { token });
-        strapi.services.sms.send(phone, `EDEN-EV: Your verification code is ${token}`);
-        ctx.send({ message: "OTP Sent from Twilio", status: 200 });
+        strapi.services.sms.send(phone, token,`EDEN-EV: Your verification code is ${token}`);
+        ctx.send({ message: "OTP Sent", status: 200 });
       } catch (error) {
         ctx.badRequest(null, [{ messages: [{ error }] }]);
       }
@@ -310,11 +310,12 @@ module.exports = {
           "users-permissions"
         ].services.user.add(user);
         console.log("entered here");
-        await smsClient.messages.create({
-          to: phone,
-          from: twilio.phone,
-          body: `Your verification code is ${token}`,
-        });
+        // await smsClient.messages.create({
+        //   to: phone,
+        //   from: twilio.phone,
+        //   body: `Your verification code is ${token}`,
+        // });
+        strapi.services.sms.send(phone, token,`EDEN-EV: Your verification code is ${token}`);
         ctx.created(sanitizeUser(data));
       } catch (error) {
         ctx.badRequest(null, [{ messages: [{ error }] }]);
