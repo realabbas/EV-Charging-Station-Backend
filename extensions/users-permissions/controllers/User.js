@@ -154,17 +154,18 @@ module.exports = {
       .findOne({ phone, token });
 
     if (!verifyUserCode) {
-      return ctx.badRequest(null, [
-        {
-          messages: [
-            {
-              id: "Auth.form.error.code.invalid",
-              message: "Invalid Code or Number",
-              field: ["phone"],
-            },
-          ],
-        },
-      ]);
+      return ctx.send({ message:"Invalid OTP" });
+      // return ctx.badRequest(null, [
+      //   {
+      //     messages: [
+      //       {
+      //         id: "Auth.form.error.code.invalid",
+      //         message: "Invalid Code or Number",
+      //         field: ["phone"],
+      //       },
+      //     ],
+      //   },
+      // ]);
     }
 
     let updateData = {
