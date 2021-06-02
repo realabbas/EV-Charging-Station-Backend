@@ -575,6 +575,12 @@
               "INSTAMOJO"
             ]
           },
+          "connector_id": {
+            "type": "string"
+          },
+          "mac_id": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -635,6 +641,12 @@
               "PAYUMONEY",
               "INSTAMOJO"
             ]
+          },
+          "connector_id": {
+            "type": "string"
+          },
+          "mac_id": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

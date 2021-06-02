@@ -61,6 +61,12 @@
         "PAYUMONEY",
         "INSTAMOJO"
       ]
+    },
+    "connector_id": {
+      "type": "string"
+    },
+    "mac_id": {
+      "type": "string"
     }
   }
 }

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "05/26/2021 12:05:42 PM"
+    "x-generation-date": "06/01/2021 6:36:04 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5948,6 +5948,12 @@
               "INSTAMOJO"
             ]
           },
+          "connector_id": {
+            "type": "string"
+          },
+          "mac_id": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -6008,6 +6014,12 @@
               "PAYUMONEY",
               "INSTAMOJO"
             ]
+          },
+          "connector_id": {
+            "type": "string"
+          },
+          "mac_id": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -6494,6 +6506,20 @@
                 "active": {
                   "type": "boolean",
                   "default": true
+                },
+                "mac_id": {
+                  "type": "string"
+                },
+                "charge": {
+                  "type": "number"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "CHARGING",
+                    "AVAILABLE",
+                    "UNAVAILABLE"
+                  ]
                 }
               }
             }
@@ -6568,6 +6594,20 @@
                 "active": {
                   "type": "boolean",
                   "default": true
+                },
+                "mac_id": {
+                  "type": "string"
+                },
+                "charge": {
+                  "type": "number"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "CHARGING",
+                    "AVAILABLE",
+                    "UNAVAILABLE"
+                  ]
                 }
               }
             }

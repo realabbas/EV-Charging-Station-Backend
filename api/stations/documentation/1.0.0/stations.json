@@ -864,6 +864,20 @@
                 "active": {
                   "type": "boolean",
                   "default": true
+                },
+                "mac_id": {
+                  "type": "string"
+                },
+                "charge": {
+                  "type": "number"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "CHARGING",
+                    "AVAILABLE",
+                    "UNAVAILABLE"
+                  ]
                 }
               }
             }
@@ -938,6 +952,20 @@
                 "active": {
                   "type": "boolean",
                   "default": true
+                },
+                "mac_id": {
+                  "type": "string"
+                },
+                "charge": {
+                  "type": "number"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "CHARGING",
+                    "AVAILABLE",
+                    "UNAVAILABLE"
+                  ]
                 }
               }
             }

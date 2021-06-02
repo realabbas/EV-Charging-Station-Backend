@@ -172,7 +172,7 @@ const AuthPage = ({ hasAdmin, setHasAdmin }) => {
       auth.setToken(token, modifiedData.rememberMe);
       auth.setUserInfo(user, modifiedData.rememberMe);
 
-      push('/');
+      // push('/');
     } catch (err) {
       if (err.response) {
         const errorMessage = get(err, ['response', 'data', 'message'], 'Something went wrong');
@@ -228,7 +228,7 @@ const AuthPage = ({ hasAdmin, setHasAdmin }) => {
       }
       // Redirect to the homePage
       setHasAdmin(true);
-      push('/');
+      // push('/');
     } catch (err) {
       if (err.response) {
         const { data } = err.response;
@@ -259,7 +259,7 @@ const AuthPage = ({ hasAdmin, setHasAdmin }) => {
       auth.setUserInfo(user, false);
 
       // Redirect to the homePage
-      push('/');
+      // push('/');
     } catch (err) {
       if (err.response) {
         const errorMessage = get(err, ['response', 'data', 'message'], 'Something went wrong');
@@ -278,14 +278,14 @@ const AuthPage = ({ hasAdmin, setHasAdmin }) => {
   // the endpoint does not exist or
   // there is already an admin user oo
   // the user is already logged in
-  if (!forms[authType] || (hasAdmin && authType === 'register-admin') || auth.getToken()) {
-    return <Redirect to="/" />;
-  }
+  // if (!forms[authType] || (hasAdmin && authType === 'register-admin') || auth.getToken()) {
+  //   return <Redirect to="/" />;
+  // }
 
-  // Redirect the user to the register-admin if it is the first user
-  if (!hasAdmin && authType !== 'register-admin') {
-    return <Redirect to="/auth/register-admin" />;
-  }
+  // // Redirect the user to the register-admin if it is the first user
+  // if (!hasAdmin && authType !== 'register-admin') {
+  //   return <Redirect to="/auth/register-admin" />;
+  // }
 
   return (
     <Padded bottom size="md">
