@@ -73,6 +73,9 @@
     },
     "user_id": {
       "type": "string"
+    },
+    "full_charge_time": {
+      "type": "string"
     }
   }
 }

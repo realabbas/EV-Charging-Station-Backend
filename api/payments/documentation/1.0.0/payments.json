@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/stations": {
+    "/payments": {
       "get": {
         "deprecated": false,
-        "description": "Find all the stations's records",
+        "description": "Find all the payments's records",
         "responses": {
           "200": {
-            "description": "Retrieve stations document(s)",
+            "description": "Retrieve payments document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Stations"
+                    "$ref": "#/components/schemas/Payments"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Stations"
+          "Payments"
         ],
         "parameters": [
           {
@@ -191,76 +191,15 @@
             "deprecated": false
           }
         ]
-      },
-      "post": {
-        "deprecated": false,
-        "description": "Create a new stations record",
-        "responses": {
-          "200": {
-            "description": "Retrieve stations document(s)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Stations"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Stations"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewStations"
-              }
-            }
-          }
-        }
       }
     },
-    "/stations/count": {
+    "/payments/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of stations documents",
+        "description": "Retrieve the numver of payments documents",
         "responses": {
           "200": {
-            "description": "Retrieve stations document(s)",
+            "description": "Retrieve payments document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +245,22 @@
         },
         "summary": "",
         "tags": [
-          "Stations"
+          "Payments"
         ],
         "parameters": []
       }
     },
-    "/stations/{id}": {
+    "/payments/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one stations record",
+        "description": "Find one payments record",
         "responses": {
           "200": {
-            "description": "Retrieve stations document(s)",
+            "description": "Retrieve payments document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Stations"
+                  "$ref": "#/components/schemas/Payments"
                 }
               }
             }
@@ -359,7 +298,7 @@
         },
         "summary": "",
         "tags": [
-          "Stations"
+          "Payments"
         ],
         "parameters": [
           {
@@ -376,14 +315,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single stations record",
+        "description": "Update a single payments record",
         "responses": {
           "200": {
-            "description": "Retrieve stations document(s)",
+            "description": "Retrieve payments document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Stations"
+                  "$ref": "#/components/schemas/Payments"
                 }
               }
             }
@@ -421,7 +360,7 @@
         },
         "summary": "",
         "tags": [
-          "Stations"
+          "Payments"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +368,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewStations"
+                "$ref": "#/components/schemas/NewPayments"
               }
             }
           }
@@ -449,10 +388,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single stations record",
+        "description": "Delete a single payments record",
         "responses": {
           "200": {
-            "description": "deletes a single stations based on the ID supplied",
+            "description": "deletes a single payments based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "Stations"
+          "Payments"
         ],
         "parameters": [
           {
@@ -511,13 +450,13 @@
         ]
       }
     },
-    "/stations/nearby": {
+    "/payments/create/order": {
       "post": {
         "deprecated": false,
-        "description": "Create a new stations record",
+        "description": "Create a new payments record",
         "responses": {
           "200": {
-            "description": "Retrieve stations document(s)",
+            "description": "Retrieve payments document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -563,7 +502,7 @@
         },
         "summary": "",
         "tags": [
-          "Stations"
+          "Payments"
         ],
         "requestBody": {
           "description": "",
@@ -582,13 +521,13 @@
         }
       }
     },
-    "/stations/lock": {
+    "/payments/callback": {
       "post": {
         "deprecated": false,
-        "description": "Create a new stations record",
+        "description": "Create a new payments record",
         "responses": {
           "200": {
-            "description": "Retrieve stations document(s)",
+            "description": "Retrieve payments document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -634,7 +573,7 @@
         },
         "summary": "",
         "tags": [
-          "Stations"
+          "Payments"
         ],
         "requestBody": {
           "description": "",
@@ -653,13 +592,13 @@
         }
       }
     },
-    "/stations/unlock": {
+    "/payments/verify": {
       "post": {
         "deprecated": false,
-        "description": "Create a new stations record",
+        "description": "Create a new payments record",
         "responses": {
           "200": {
-            "description": "Retrieve stations document(s)",
+            "description": "Retrieve payments document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -705,7 +644,7 @@
         },
         "summary": "",
         "tags": [
-          "Stations"
+          "Payments"
         ],
         "requestBody": {
           "description": "",
@@ -727,7 +666,7 @@
   },
   "components": {
     "schemas": {
-      "Stations": {
+      "Payments": {
         "required": [
           "id"
         ],
@@ -735,157 +674,31 @@
           "id": {
             "type": "string"
           },
-          "name": {
+          "razorpay_payment_id": {
             "type": "string"
           },
-          "address": {
+          "order_id": {
             "type": "string"
           },
-          "latitude": {
-            "type": "number"
+          "razorpay_signature": {
+            "type": "string"
           },
-          "longitude": {
-            "type": "number"
-          },
-          "blocked": {
-            "type": "boolean",
-            "default": false
+          "datetime": {
+            "type": "string",
+            "format": "date-time"
           },
           "status": {
             "type": "string",
             "enum": [
-              "AVAILABLE",
-              "UNAVAILABLE",
-              "LOCKED"
+              "SUCCESS",
+              "FAILED",
+              "REFUNDED"
             ]
-          },
-          "images": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "hash",
-                "mime",
-                "size",
-                "url",
-                "provider"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "alternativeText": {
-                  "type": "string"
-                },
-                "caption": {
-                  "type": "string"
-                },
-                "width": {
-                  "type": "integer"
-                },
-                "height": {
-                  "type": "integer"
-                },
-                "formats": {
-                  "type": "object"
-                },
-                "hash": {
-                  "type": "string"
-                },
-                "ext": {
-                  "type": "string"
-                },
-                "mime": {
-                  "type": "string"
-                },
-                "size": {
-                  "type": "number"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "previewUrl": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "provider_metadata": {
-                  "type": "object"
-                },
-                "related": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "pincode": {
-            "type": "integer"
-          },
-          "power_rating": {
-            "type": "number"
-          },
-          "slots": {
-            "type": "integer"
-          },
-          "area": {
-            "type": "string"
-          },
-          "opening_time": {
-            "type": "string"
-          },
-          "closing_time": {
-            "type": "string"
-          },
-          "connectors": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "active": {
-                  "type": "boolean",
-                  "default": true
-                },
-                "mac_id": {
-                  "type": "string"
-                },
-                "charge": {
-                  "type": "number"
-                },
-                "status": {
-                  "type": "string",
-                  "enum": [
-                    "CHARGING",
-                    "AVAILABLE",
-                    "UNAVAILABLE"
-                  ]
-                }
-              }
-            }
           },
           "user_id": {
             "type": "string"
           },
-          "full_charge_time": {
+          "booking_id": {
             "type": "string"
           },
           "published_at": {
@@ -894,89 +707,33 @@
           }
         }
       },
-      "NewStations": {
+      "NewPayments": {
         "properties": {
-          "name": {
+          "razorpay_payment_id": {
             "type": "string"
           },
-          "address": {
+          "order_id": {
             "type": "string"
           },
-          "latitude": {
-            "type": "number"
+          "razorpay_signature": {
+            "type": "string"
           },
-          "longitude": {
-            "type": "number"
-          },
-          "blocked": {
-            "type": "boolean",
-            "default": false
+          "datetime": {
+            "type": "string",
+            "format": "date-time"
           },
           "status": {
             "type": "string",
             "enum": [
-              "AVAILABLE",
-              "UNAVAILABLE",
-              "LOCKED"
+              "SUCCESS",
+              "FAILED",
+              "REFUNDED"
             ]
-          },
-          "pincode": {
-            "type": "integer"
-          },
-          "power_rating": {
-            "type": "number"
-          },
-          "slots": {
-            "type": "integer"
-          },
-          "area": {
-            "type": "string"
-          },
-          "opening_time": {
-            "type": "string"
-          },
-          "closing_time": {
-            "type": "string"
-          },
-          "connectors": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "active": {
-                  "type": "boolean",
-                  "default": true
-                },
-                "mac_id": {
-                  "type": "string"
-                },
-                "charge": {
-                  "type": "number"
-                },
-                "status": {
-                  "type": "string",
-                  "enum": [
-                    "CHARGING",
-                    "AVAILABLE",
-                    "UNAVAILABLE"
-                  ]
-                }
-              }
-            }
           },
           "user_id": {
             "type": "string"
           },
-          "full_charge_time": {
+          "booking_id": {
             "type": "string"
           },
           "published_at": {
@@ -995,7 +752,7 @@
   },
   "tags": [
     {
-      "name": "Stations"
+      "name": "Payments"
     }
   ]
 }

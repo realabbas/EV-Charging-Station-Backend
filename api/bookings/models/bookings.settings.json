@@ -44,9 +44,6 @@
     "station_id": {
       "type": "string"
     },
-    "payment_id": {
-      "type": "richtext"
-    },
     "payment_mode": {
       "type": "enumeration",
       "enum": [
@@ -66,6 +63,9 @@
       "type": "string"
     },
     "mac_id": {
+      "type": "string"
+    },
+    "payment_id": {
       "type": "string"
     }
   }

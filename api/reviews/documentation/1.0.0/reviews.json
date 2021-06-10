@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/stations": {
+    "/reviews": {
       "get": {
         "deprecated": false,
-        "description": "Find all the stations's records",
+        "description": "Find all the reviews's records",
         "responses": {
           "200": {
-            "description": "Retrieve stations document(s)",
+            "description": "Retrieve reviews document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Stations"
+                    "$ref": "#/components/schemas/Reviews"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Stations"
+          "Reviews"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new stations record",
+        "description": "Create a new reviews record",
         "responses": {
           "200": {
-            "description": "Retrieve stations document(s)",
+            "description": "Retrieve reviews document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Stations"
+                  "$ref": "#/components/schemas/Reviews"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Stations"
+          "Reviews"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewStations"
+                "$ref": "#/components/schemas/NewReviews"
               }
             }
           }
         }
       }
     },
-    "/stations/count": {
+    "/reviews/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of stations documents",
+        "description": "Retrieve the numver of reviews documents",
         "responses": {
           "200": {
-            "description": "Retrieve stations document(s)",
+            "description": "Retrieve reviews document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Stations"
+          "Reviews"
         ],
         "parameters": []
       }
     },
-    "/stations/{id}": {
+    "/reviews/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one stations record",
+        "description": "Find one reviews record",
         "responses": {
           "200": {
-            "description": "Retrieve stations document(s)",
+            "description": "Retrieve reviews document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Stations"
+                  "$ref": "#/components/schemas/Reviews"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Stations"
+          "Reviews"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single stations record",
+        "description": "Update a single reviews record",
         "responses": {
           "200": {
-            "description": "Retrieve stations document(s)",
+            "description": "Retrieve reviews document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Stations"
+                  "$ref": "#/components/schemas/Reviews"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Stations"
+          "Reviews"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewStations"
+                "$ref": "#/components/schemas/NewReviews"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single stations record",
+        "description": "Delete a single reviews record",
         "responses": {
           "200": {
-            "description": "deletes a single stations based on the ID supplied",
+            "description": "deletes a single reviews based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Stations"
+          "Reviews"
         ],
         "parameters": [
           {
@@ -510,224 +510,11 @@
           }
         ]
       }
-    },
-    "/stations/nearby": {
-      "post": {
-        "deprecated": false,
-        "description": "Create a new stations record",
-        "responses": {
-          "200": {
-            "description": "Retrieve stations document(s)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Stations"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/stations/lock": {
-      "post": {
-        "deprecated": false,
-        "description": "Create a new stations record",
-        "responses": {
-          "200": {
-            "description": "Retrieve stations document(s)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Stations"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/stations/unlock": {
-      "post": {
-        "deprecated": false,
-        "description": "Create a new stations record",
-        "responses": {
-          "200": {
-            "description": "Retrieve stations document(s)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Stations"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
     "schemas": {
-      "Stations": {
+      "Reviews": {
         "required": [
           "id"
         ],
@@ -735,158 +522,24 @@
           "id": {
             "type": "string"
           },
-          "name": {
-            "type": "string"
-          },
-          "address": {
-            "type": "string"
-          },
-          "latitude": {
+          "rating": {
             "type": "number"
           },
-          "longitude": {
-            "type": "number"
-          },
-          "blocked": {
-            "type": "boolean",
-            "default": false
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "AVAILABLE",
-              "UNAVAILABLE",
-              "LOCKED"
-            ]
-          },
-          "images": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "hash",
-                "mime",
-                "size",
-                "url",
-                "provider"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "alternativeText": {
-                  "type": "string"
-                },
-                "caption": {
-                  "type": "string"
-                },
-                "width": {
-                  "type": "integer"
-                },
-                "height": {
-                  "type": "integer"
-                },
-                "formats": {
-                  "type": "object"
-                },
-                "hash": {
-                  "type": "string"
-                },
-                "ext": {
-                  "type": "string"
-                },
-                "mime": {
-                  "type": "string"
-                },
-                "size": {
-                  "type": "number"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "previewUrl": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "provider_metadata": {
-                  "type": "object"
-                },
-                "related": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "pincode": {
-            "type": "integer"
-          },
-          "power_rating": {
-            "type": "number"
-          },
-          "slots": {
-            "type": "integer"
-          },
-          "area": {
+          "review": {
             "type": "string"
-          },
-          "opening_time": {
-            "type": "string"
-          },
-          "closing_time": {
-            "type": "string"
-          },
-          "connectors": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "active": {
-                  "type": "boolean",
-                  "default": true
-                },
-                "mac_id": {
-                  "type": "string"
-                },
-                "charge": {
-                  "type": "number"
-                },
-                "status": {
-                  "type": "string",
-                  "enum": [
-                    "CHARGING",
-                    "AVAILABLE",
-                    "UNAVAILABLE"
-                  ]
-                }
-              }
-            }
           },
           "user_id": {
             "type": "string"
           },
-          "full_charge_time": {
+          "station_id": {
             "type": "string"
+          },
+          "booking_id": {
+            "type": "string"
+          },
+          "show": {
+            "type": "boolean",
+            "default": true
           },
           "published_at": {
             "type": "string",
@@ -894,90 +547,26 @@
           }
         }
       },
-      "NewStations": {
+      "NewReviews": {
         "properties": {
-          "name": {
-            "type": "string"
-          },
-          "address": {
-            "type": "string"
-          },
-          "latitude": {
+          "rating": {
             "type": "number"
           },
-          "longitude": {
-            "type": "number"
-          },
-          "blocked": {
-            "type": "boolean",
-            "default": false
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "AVAILABLE",
-              "UNAVAILABLE",
-              "LOCKED"
-            ]
-          },
-          "pincode": {
-            "type": "integer"
-          },
-          "power_rating": {
-            "type": "number"
-          },
-          "slots": {
-            "type": "integer"
-          },
-          "area": {
+          "review": {
             "type": "string"
-          },
-          "opening_time": {
-            "type": "string"
-          },
-          "closing_time": {
-            "type": "string"
-          },
-          "connectors": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "active": {
-                  "type": "boolean",
-                  "default": true
-                },
-                "mac_id": {
-                  "type": "string"
-                },
-                "charge": {
-                  "type": "number"
-                },
-                "status": {
-                  "type": "string",
-                  "enum": [
-                    "CHARGING",
-                    "AVAILABLE",
-                    "UNAVAILABLE"
-                  ]
-                }
-              }
-            }
           },
           "user_id": {
             "type": "string"
           },
-          "full_charge_time": {
+          "station_id": {
             "type": "string"
+          },
+          "booking_id": {
+            "type": "string"
+          },
+          "show": {
+            "type": "boolean",
+            "default": true
           },
           "published_at": {
             "type": "string",
@@ -995,7 +584,7 @@
   },
   "tags": [
     {
-      "name": "Stations"
+      "name": "Reviews"
     }
   ]
 }

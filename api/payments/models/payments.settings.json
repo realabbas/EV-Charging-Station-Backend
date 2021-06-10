@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "name": "Payments",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "razorpay_payment_id": {
+      "type": "string"
+    },
+    "order_id": {
+      "type": "string"
+    },
+    "razorpay_signature": {
+      "type": "string"
+    },
+    "datetime": {
+      "type": "datetime"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "SUCCESS",
+        "FAILED",
+        "REFUNDED"
+      ]
+    },
+    "user_id": {
+      "type": "string"
+    },
+    "booking_id": {
+      "type": "string"
+    }
+  }
+}

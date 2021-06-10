@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reviews",
+  "info": {
+    "name": "Reviews"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "rating": {
+      "type": "decimal"
+    },
+    "review": {
+      "type": "richtext"
+    },
+    "user_id": {
+      "type": "string"
+    },
+    "station_id": {
+      "type": "string"
+    },
+    "booking_id": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

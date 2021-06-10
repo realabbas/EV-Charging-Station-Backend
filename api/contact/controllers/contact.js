@@ -5,4 +5,13 @@
  * to customize this controller
  */
 
-module.exports = {};
+module.exports = {
+    async find(ctx) {
+
+        const query = await strapi
+            .query("contact")
+            .find({});
+
+        ctx.send({ data: query, size: query.length });
+    }
+};
