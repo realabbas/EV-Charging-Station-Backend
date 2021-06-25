@@ -74,6 +74,23 @@
         "policies": [],
         "prefix": ""
       }
+    },
+    {
+      "method": "POST",
+      "path": "/stations/add-connector",
+      "handler": "stations.addConnector",
+      "config": {
+        "policies": [],
+        "prefix": ""
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/stations/available/slots",
+      "handler": "stations.availableSlots",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

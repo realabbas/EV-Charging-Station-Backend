@@ -67,6 +67,9 @@
     },
     "payment_id": {
       "type": "string"
+    },
+    "station_name": {
+      "type": "string"
     }
   }
 }

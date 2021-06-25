@@ -25,5 +25,13 @@ module.exports = {
             .find({ user_id: user_id });
 
         ctx.send({ data: query, size: query.length });
-    }
+    },
+    async allBookings(ctx) {
+
+        const query = await strapi
+            .query("bookings")
+            .find({});
+
+        ctx.send({ data: query, size: query.length });
+    },
 };

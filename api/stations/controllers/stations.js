@@ -103,4 +103,61 @@ module.exports = {
 
     ctx.send({ data: query });
   },
+  async addConnector(ctx) {
+    const { station_id } = ctx.request.body;
+
+    const data = await strapi
+      .query("stations")
+      .findOne({ id: station_id });
+
+    console.log("Data", data)
+
+    let temp = data.connectors;
+
+    console.log("Body CONNECTOR", ctx.request.body.connector)
+
+    temp.push(ctx.request.body.connector)
+
+    console.log("TEMP", temp)
+
+    // updateData
+
+    const updateData = {
+      connectors: ctx.request.body.connector
+    };
+
+    // query
+
+    const query = await strapi
+      .query("stations")
+      .update({ id: station_id }, updateData);
+
+    ctx.send({ status: 1 });
+  },
+  async availableSlots(ctx) {
+
+    const { connector_id, date } = ctx.request.body
+
+    const query = await strapi
+      .query("bookings")
+      .find({ connector_id });
+
+    let booked_slots = [];
+
+    const current_time = new Date().toISOString()
+    const booked_from = "2021-06-19T05:00:00.000Z";
+    const booked_to = "2021-06-19T06:00:00.000Z";
+
+    console.log(new Date(booked_from).toLocaleTimeString(undefined, { timeZone: 'Asia/Kolkata' }))
+
+    query.map((i, j) => {
+      new Date().toDateString() === date ? (booked_slots.push(`${new Date(i.booked_from).toLocaleTimeString(undefined, { timeZone: 'Asia/Kolkata' })} - ${new Date(i.booked_to).toLocaleTimeString(undefined, { timeZone: 'Asia/Kolkata' })}`)) : null
+    })
+
+    // C = A.filter(function (val) {
+    //   return B.indexOf(val) == -1;
+    // });
+
+    ctx.send({ bookings: booked_slots.length, booked_slots });
+  },
 };

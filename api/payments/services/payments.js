@@ -6,15 +6,17 @@ const axios = require('axios');
 
 
 module.exports = {
-    createOrder: async(body) => {
+    createOrder: async (body) => {
         const data = JSON.stringify(body);
         const config = {
             method: 'post',
             url: 'https://api.razorpay.com/v1/orders',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Basic cnpwX3Rlc3RfTVVLRkpCQUhHbUxmSDU6WGlOOGZ3eUpDS3dNMm9PYmRlWnJ3NGpt'
+                'Authorization': 'Basic cnpwX3Rlc3RfNXdSUjNaMElkM3FzR0g6ckNPR2c2NTJoZnBTYXlpTXBYTW5ZQW4w'
+                // 'Authorization': 'Basic cnpwX3Rlc3RfTVVLRkpCQUhHbUxmSDU6WGlOOGZ3eUpDS3dNMm9PYmRlWnJ3NGpt'
             },
+
             data: data
         };
 

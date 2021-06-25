@@ -25,6 +25,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/bookings/list/all",
+      "handler": "bookings.allBookings",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/bookings",
       "handler": "bookings.create",

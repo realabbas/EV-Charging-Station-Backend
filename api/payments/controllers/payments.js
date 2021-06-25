@@ -33,8 +33,27 @@ module.exports = {
 
         const razorpay_signature = ctx.request.body.razorpay_signature
         const razorpay_payment_id = ctx.request.body.razorpay_payment_id
-        const secret = "XiN8fwyJCKwM2oObdeZrw4jm"
+        // ALI XiN8fwyJCKwM2oObdeZrw4jm
+        // rCOGg652hfpSayiMpXMnYAn0
+        const secret = "rCOGg652hfpSayiMpXMnYAn0"
         const order_id = ctx.request.body.order_id
+
+        const payment_order_id = await strapi
+            .query("payments")
+            .findOne({ order_id });
+
+        console.log("payment_order_id", payment_order_id)
+
+        const find_existing_booking_with_same_order_id = await strapi
+            .query("bookings")
+            .findOne({ payment_id: payment_order_id.id });
+
+        console.log("find_existing_booking_with_same_order_id", !find_existing_booking_with_same_order_id)
+
+        if (find_existing_booking_with_same_order_id !== null) {
+            console.log("INSIDE Condition")
+            return ctx.send({ message: "Booking already existing with same order id" })
+        }
 
         // Verifying Signature
         const generated_signature = sha256.hmac(secret, order_id + "|" + razorpay_payment_id);
@@ -47,9 +66,11 @@ module.exports = {
             // Create a Booking Entry`
             let body = ctx.request.body.booking
             body.user_id = ctx.state.user.id
+
             booking_query = await strapi.services.bookings.create(body);
             updateData.booking_id = booking_query.id
             sanitizeEntity(booking_query, { model: strapi.models.bookings });
+
 
         } else {
             console.log("Failed")
