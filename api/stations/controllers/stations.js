@@ -123,7 +123,7 @@ module.exports = {
     // updateData
 
     const updateData = {
-      connectors: ctx.request.body.connector
+      connectors: temp
     };
 
     // query
